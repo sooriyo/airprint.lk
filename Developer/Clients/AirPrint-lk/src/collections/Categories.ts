@@ -1,7 +1,7 @@
-import { slugField } from 'payload'
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig } from 'payload';
+import { slugField } from 'payload';
 
-import { adminOnly } from '@/access/adminOnly'
+import { adminOnly } from '@/access/adminOnly';
 
 export const Categories: CollectionConfig = {
   slug: 'categories',
@@ -20,6 +20,22 @@ export const Categories: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
+    },
+    {
+      name: 'parent',
+      type: 'relationship',
+      relationTo: 'categories',
+      admin: {
+        position: 'sidebar',
+      },
+      filterOptions: ({ id }) => {
+        if (!id) return true;
+        return {
+          id: {
+            not_equals: id,
+          },
+        };
+      },
     },
     slugField({
       position: undefined,
