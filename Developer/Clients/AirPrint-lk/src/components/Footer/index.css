@@ -1,119 +1,150 @@
 .footer {
     background-color: #0066FF;
     color: white;
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+    font-family: var(--font-sf-ui), sans-serif;
 }
 
 .footerLogo {
     filter: brightness(0) invert(1);
+    height: 2.5rem;
+    width: auto;
+    margin-bottom: 2.5rem;
 }
 
 .footerTagline {
-    font-size: 2.25rem;
-    line-height: 1.2;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin-bottom: 3rem;
+    max-width: 450px;
     font-weight: 300;
-    max-width: 480px;
-    margin-top: 2rem;
-    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
 }
 
 .footerNewsletterLabel {
     font-size: 0.9375rem;
-    color: white;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
+    display: block;
+    font-weight: 300;
+    opacity: 0.9;
 }
 
-.footerSubscribeBox {
+.footerNewsletterForm {
+    background-color: white;
+    border-radius: 0.75rem;
     display: flex;
     align-items: center;
-    background-color: white;
-    border-radius: 8px;
-    padding: 0.75rem 1.25rem;
-    max-width: 450px;
+    padding: 0.625rem 1.25rem;
+    max-width: 480px;
+    margin-bottom: 5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-.footerInput {
+.footerNewsletterInput {
     flex: 1;
     border: none;
     background: transparent;
+    padding: 0.625rem;
     color: #111827;
-    font-size: 0.9375rem;
-    padding-left: 0.75rem;
+    font-size: 1rem;
     outline: none;
+    font-weight: 300;
 }
 
-.footerInput::placeholder {
+.footerNewsletterInput::placeholder {
     color: #A1A1AA;
 }
 
-.footerSubscribeBtn {
+.footerNewsletterButton {
     background: transparent;
     border: none;
     color: #0066FF;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 0.8125rem;
-    text-transform: uppercase;
     letter-spacing: 0.05em;
-    padding-left: 1rem;
+    padding: 0.5rem 0.75rem;
     cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.footerNewsletterButton:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
 }
 
 .footerColumnTitle {
-    font-size: 1.125rem;
     font-weight: 600;
-    /* Semibold */
-    margin-bottom: 2rem;
+    font-size: 1.125rem;
+    margin-bottom: 1.75rem;
     color: white;
 }
 
-.footerLink {
-    color: white;
-    font-size: 0.9375rem;
-    font-weight: 300;
-    /* Light font */
-    opacity: 0.9;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+.footerNavLink {
     display: block;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9375rem;
+    margin-bottom: 0.875rem;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 300;
 }
 
-.footerLink:hover {
-    opacity: 1;
-    transform: translateX(4px);
+.footerNavLink:hover {
+    color: white;
+    text-decoration: underline;
 }
 
 .footerBottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1.5rem 0;
-    margin-top: 4rem;
+    margin-top: 5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    font-weight: 300;
 }
 
 @media (min-width: 768px) {
     .footerBottom {
         flex-direction: row;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
     }
 }
 
-.footerSocialText {
-    color: white;
-    opacity: 0.8;
+.footerSocials {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.footerSocialLabel {
     font-size: 0.875rem;
+    margin-right: 0.25rem;
+    opacity: 0.8;
 }
 
 .footerSocialIcon {
     color: white;
-    transition: opacity 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
 .footerSocialIcon:hover {
-    opacity: 0.7;
+    transform: translateY(-2px);
 }
 
 .footerCopyright {
-    color: white;
-    opacity: 0.8;
     font-size: 0.875rem;
+    opacity: 0.7;
+}
+
+@media (max-width: 1024px) {
+    .footerTagline {
+        font-size: 2rem;
+    }
+
+    .footerNewsletterForm {
+        max-width: 100%;
+    }
 }
