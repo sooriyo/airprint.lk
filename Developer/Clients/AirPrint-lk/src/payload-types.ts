@@ -1840,12 +1840,10 @@ export interface Header {
  */
 export interface Footer {
   id: number;
-  tagline?: string | null;
-  newsletterLabel?: string | null;
-  columnGroups?:
+  columns?:
     | {
         title: string;
-        links?:
+        navItems?:
           | {
               link: {
                 type?: ('reference' | 'custom') | null;
@@ -1863,14 +1861,6 @@ export interface Footer {
         id?: string | null;
       }[]
     | null;
-  socialLinks?:
-    | {
-        platform: 'facebook' | 'instagram' | 'linkedin' | 'twitter';
-        url: string;
-        id?: string | null;
-      }[]
-    | null;
-  copyright?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1927,13 +1917,11 @@ export interface HeaderSelect<T extends boolean = true> {
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
-  tagline?: T;
-  newsletterLabel?: T;
-  columnGroups?:
+  columns?:
     | T
     | {
         title?: T;
-        links?:
+        navItems?:
           | T
           | {
               link?:
@@ -1949,14 +1937,6 @@ export interface FooterSelect<T extends boolean = true> {
             };
         id?: T;
       };
-  socialLinks?:
-    | T
-    | {
-        platform?: T;
-        url?: T;
-        id?: T;
-      };
-  copyright?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

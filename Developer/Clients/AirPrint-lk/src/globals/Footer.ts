@@ -16,28 +16,17 @@ export const Footer: GlobalConfig = {
   },
   fields: [
     {
-      name: 'tagline',
-      type: 'textarea',
-      defaultValue: 'Create the perfect packaging solution for your product!',
-    },
-    {
-      name: 'newsletterLabel',
-      type: 'text',
-      defaultValue: 'Sign up for exclusive offers and updates!',
-    },
-    {
-      name: 'columnGroups',
+      name: 'columns',
       type: 'array',
       label: 'Footer Columns',
       fields: [
         {
           name: 'title',
           type: 'text',
-          label: 'Column Title',
           required: true,
         },
         {
-          name: 'links',
+          name: 'navItems',
           type: 'array',
           fields: [
             link({
@@ -47,35 +36,6 @@ export const Footer: GlobalConfig = {
         },
       ],
       maxRows: 4,
-    },
-    {
-      name: 'socialLinks',
-      type: 'array',
-      label: 'Social Media Links',
-      fields: [
-        {
-          name: 'platform',
-          type: 'select',
-          options: [
-            { label: 'Facebook', value: 'facebook' },
-            { label: 'Instagram', value: 'instagram' },
-            { label: 'LinkedIn', value: 'linkedin' },
-            { label: 'Twitter', value: 'twitter' },
-          ],
-          required: true,
-        },
-        {
-          name: 'url',
-          type: 'text',
-          label: 'Link URL',
-          required: true,
-        },
-      ],
-    },
-    {
-      name: 'copyright',
-      type: 'text',
-      defaultValue: '© 2026 AirPrint. All Rights Reserved',
     },
   ],
 }

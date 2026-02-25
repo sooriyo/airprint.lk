@@ -13,16 +13,6 @@ import './globals.css'
 const sfUIDisplay = localFont({
   src: [
     {
-      path: '../../fonts/SFUIDisplay-Ultralight.woff2',
-      weight: '200',
-      style: 'normal',
-    },
-    {
-      path: '../../fonts/SFUIDisplay-Light.woff2',
-      weight: '300',
-      style: 'normal',
-    },
-    {
       path: '../../fonts/SFUIDisplay-Regular.woff2',
       weight: '400',
       style: 'normal',
