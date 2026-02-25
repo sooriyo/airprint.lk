@@ -30,7 +30,7 @@
 /* Typography for the sub-menu */
 .megaMenuColumnTitle {
   font-size: 0.75rem;
-  font-weight: 800;
+  font-weight: 500;
   margin-bottom: 1.25rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -43,7 +43,7 @@
   /* Gray-600 */
   padding: 0.4rem 0;
   transition: all 0.15s ease;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .megaMenuLink:hover {
