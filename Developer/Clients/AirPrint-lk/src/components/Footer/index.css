@@ -1,0 +1,119 @@
+.footer {
+    background-color: #0066FF;
+    color: white;
+}
+
+.footerLogo {
+    filter: brightness(0) invert(1);
+}
+
+.footerTagline {
+    font-size: 2.25rem;
+    line-height: 1.2;
+    font-weight: 300;
+    max-width: 480px;
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.footerNewsletterLabel {
+    font-size: 0.9375rem;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.footerSubscribeBox {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    max-width: 450px;
+}
+
+.footerInput {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: #111827;
+    font-size: 0.9375rem;
+    padding-left: 0.75rem;
+    outline: none;
+}
+
+.footerInput::placeholder {
+    color: #A1A1AA;
+}
+
+.footerSubscribeBtn {
+    background: transparent;
+    border: none;
+    color: #0066FF;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-left: 1rem;
+    cursor: pointer;
+}
+
+.footerColumnTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    /* Semibold */
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.footerLink {
+    color: white;
+    font-size: 0.9375rem;
+    font-weight: 300;
+    /* Light font */
+    opacity: 0.9;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    display: block;
+}
+
+.footerLink:hover {
+    opacity: 1;
+    transform: translateX(4px);
+}
+
+.footerBottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 0;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .footerBottom {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.footerSocialText {
+    color: white;
+    opacity: 0.8;
+    font-size: 0.875rem;
+}
+
+.footerSocialIcon {
+    color: white;
+    transition: opacity 0.2s ease;
+}
+
+.footerSocialIcon:hover {
+    opacity: 0.7;
+}
+
+.footerCopyright {
+    color: white;
+    opacity: 0.8;
+    font-size: 0.875rem;
+}
