@@ -74,7 +74,7 @@ export function HeaderClient({ header }: Props) {
       <div className="relative bg-white z-[1001] border-b border-gray-100">
         <nav className="hidden md:block">
           <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between gap-0">
+            <div className="flex items-center justify-center gap-0">
               {menu.length ? (
                 menu.map((item, index) => {
                   const subMenuBlocks = (item as any).subMenu?.blocks || []
