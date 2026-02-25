@@ -13,23 +13,38 @@ import './globals.css'
 const sfUIDisplay = localFont({
   src: [
     {
-      path: '../../fonts/SFUIDisplay-Regular.woff2',
+      path: '../../fonts/SF UI Display Thin.woff2',
+      weight: '100',
+      style: 'normal',
+    },
+    {
+      path: '../../fonts/SF UI Display Light.woff2',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../../fonts/SF UI Display Regular.woff2',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../../fonts/SFUIDisplay-Medium.woff2',
+      path: '../../fonts/SF UI Display Medium.woff2',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../../fonts/SFUIDisplay-Semibold.woff2',
+      path: '../../fonts/SF UI Display Semibold.woff2',
       weight: '600',
       style: 'normal',
     },
     {
-      path: '../../fonts/SFUIDisplay-Bold.woff2',
+      path: '../../fonts/SF UI Display Heavy.woff2',
       weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../../fonts/SF UI Display Heavy.woff2',
+      weight: '800',
       style: 'normal',
     },
   ],
