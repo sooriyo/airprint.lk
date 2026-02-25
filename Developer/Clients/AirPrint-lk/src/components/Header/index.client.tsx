@@ -99,6 +99,7 @@ export function HeaderClient({ header }: Props) {
                             {
                               'text-blue-600 border-blue-600':
                                 (item.link.url && item.link.url !== '/' && pathname.includes(item.link.url)) || isActive,
+                              'text-blue-600 font-bold': item.link.label === 'The AirPrint',
                             },
                           )}
                           appearance="nav"
@@ -110,6 +111,7 @@ export function HeaderClient({ header }: Props) {
                             'navLink text-sm font-medium text-gray-700 whitespace-nowrap px-4 py-5 border-b-2 border-transparent flex items-center gap-1 cursor-pointer transition-colors outline-none',
                             {
                               'text-blue-600 border-blue-600': isActive,
+                              'text-blue-600 font-bold': item.link.label === 'The AirPrint',
                             },
                           )}
                         >
