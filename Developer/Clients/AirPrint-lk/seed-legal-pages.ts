@@ -5,7 +5,7 @@ import configPromise from './src/payload.config'
 async function run() {
     const payload = await getPayload({ config: configPromise })
 
-    console.log('Fetching existing pages...')
+    console.log('Fetching Pages...')
     const allPagesRes = await payload.find({
         collection: 'pages',
         limit: 100,
@@ -323,55 +323,49 @@ async function run() {
     if (header && header.navItems) {
         let updatedHeaderNav = []
         for (const navGroup of header.navItems) {
-            let linkLabel = typeof navGroup.link === 'object' ? navGroup.link.label : ''
-            if (linkLabel === 'Legal' || linkLabel === 'Legal & Policies') {
-                // Completely rewrite the subMenu links for Legal
-                let newNavBlocks = []
-                newNavBlocks.push({
-                    title: 'Policies',
-                    links: [
-                        {
-                            link: {
-                                type: 'reference',
-                                reference: {
-                                    relationTo: 'pages',
-                                    value: privacyPolicy.id as number,
-                                },
-                                label: 'Privacy Policy'
-                            }
-                        },
-                        {
-                            link: {
-                                type: 'reference',
-                                reference: {
-                                    relationTo: 'pages',
-                                    value: termsAndConditions.id as number,
-                                },
-                                label: 'Terms & Conditions'
-                            }
-                        },
-                        {
-                            link: {
-                                type: 'reference',
-                                reference: {
-                                    relationTo: 'pages',
-                                    value: shippingReturnPolicy.id as number,
-                                },
-                                label: 'Shipping & Return Policy'
-                            }
-                        }
-                    ]
-                })
+            let newNavBlocks = []
 
-                navGroup.subMenu = navGroup.subMenu || { blocks: [] }
-                navGroup.subMenu.blocks = newNavBlocks as any
-                updatedHeaderNav.push(navGroup)
-            } else {
-                updatedHeaderNav.push(navGroup)
+            for (const block of navGroup?.subMenu?.blocks || []) {
+                if (block.title === 'Legal' || block.title === 'Policies' || block.title === 'Legal & Policies') {
+                    newNavBlocks.push({
+                        id: block.id,
+                        title: 'Legal',
+                        links: [
+                            {
+                                link: {
+                                    type: 'reference',
+                                    reference: { relationTo: 'pages', value: privacyPolicy.id as number },
+                                    label: 'Privacy Policy'
+                                }
+                            },
+                            {
+                                link: {
+                                    type: 'reference',
+                                    reference: { relationTo: 'pages', value: termsAndConditions.id as number },
+                                    label: 'Terms & Conditions'
+                                }
+                            },
+                            {
+                                link: {
+                                    type: 'reference',
+                                    reference: { relationTo: 'pages', value: shippingReturnPolicy.id as number },
+                                    label: 'Shipping & Return Policy'
+                                }
+                            }
+                        ]
+                    })
+                } else {
+                    newNavBlocks.push(block)
+                }
             }
+
+            if (navGroup.subMenu) {
+                navGroup.subMenu.blocks = newNavBlocks as any
+            }
+            updatedHeaderNav.push(navGroup)
         }
 
-        console.log('Updating Global Header navigation array with single Shipping & Return Policy link...')
+        console.log('Updating Global Header navigation array...')
         try {
             await payload.updateGlobal({
                 slug: 'header',
