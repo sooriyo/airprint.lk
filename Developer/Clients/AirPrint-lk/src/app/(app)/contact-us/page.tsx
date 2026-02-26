@@ -28,29 +28,29 @@ export default function ContactUsPage() {
 
                             <div className="flex flex-col gap-8">
                                 <div>
-                                    <span className="text-blue-500 uppercase text-xs tracking-[0.2em] font-bold mb-2 block">EMAIL US</span>
-                                    <a href="mailto:hello@airprint.lk" className="text-gray-800 text-lg hover:text-blue-500 transition-colors">hello@airprint.lk</a>
+                                    <span className="text-blue-500 uppercase text-xs tracking-[0.2em] mb-2 block font-medium">EMAIL US</span>
+                                    <a href="mailto:hello@airprint.lk" className="text-gray-800 text-lg font-light hover:text-blue-500 transition-colors">hello@airprint.lk</a>
                                 </div>
 
                                 <div>
-                                    <span className="text-blue-500 uppercase text-xs tracking-[0.2em] font-bold mb-2 block">CALL US</span>
-                                    <a href="tel:+94112345678" className="text-gray-800 text-lg hover:text-blue-500 transition-colors">+94 11 234 5678</a>
+                                    <span className="text-blue-500 uppercase text-xs tracking-[0.2em] mb-2 block font-medium">CALL US</span>
+                                    <a href="tel:0773260026" className="text-gray-800 text-lg font-light hover:text-blue-500 transition-colors">077 326 0026</a>
                                 </div>
 
                                 <div>
-                                    <span className="text-blue-500 uppercase text-xs tracking-[0.2em] font-bold mb-2 block">VISIT US</span>
-                                    <p className="text-gray-800 text-lg leading-relaxed">
-                                        123 Eco Packaging Way,<br />
-                                        Colombo 03,<br />
-                                        Sri Lanka
+                                    <span className="text-blue-500 uppercase text-xs tracking-[0.2em] mb-2 block font-medium">VISIT US</span>
+                                    <p className="text-gray-800 text-lg font-light leading-relaxed">
+                                        UDA Industrial Estate,<br />
+                                        Katuwana Rd,<br />
+                                        Homagama
                                     </p>
                                 </div>
 
                                 <div className="mt-4 pt-8 border-t border-gray-200">
-                                    <span className="text-blue-500 uppercase text-xs tracking-[0.2em] font-bold mb-2 block">WORKING HOURS</span>
-                                    <p className="text-gray-500 text-base leading-relaxed">
-                                        Monday - Friday: 9:00 AM - 6:00 PM<br />
-                                        Weekend: Closed
+                                    <span className="text-blue-500 uppercase text-xs tracking-[0.2em] mb-2 block font-medium">WORKING HOURS</span>
+                                    <p className="text-gray-500 text-base font-light leading-relaxed">
+                                        Mon - Sat: 8:00 AM - 5:30 PM<br />
+                                        Sunday: Closed
                                     </p>
                                 </div>
                             </div>
