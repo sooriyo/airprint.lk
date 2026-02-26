@@ -1,0 +1,80 @@
+import type { Metadata } from 'next'
+import Image from 'next/image'
+
+export const metadata: Metadata = {
+    title: 'About Us - AirPrint',
+    description: 'We are committed to making the printing industry more sustainable and digital.',
+}
+
+export default function AboutUsPage() {
+    return (
+        <article className="pt-24 pb-32">
+            {/* Intro Section */}
+            <section className="container mx-auto px-4 max-w-3xl text-center flex flex-col items-center">
+                <span className="text-blue-500 font-medium text-xl mb-2">About us.</span>
+                <h1 className="text-4xl md:text-[3.5rem] font-light text-gray-900 mb-8 tracking-tight">Hey, we are AirPrint!</h1>
+                <p className="text-gray-500 text-lg md:text-xl font-light leading-relaxed">
+                    We are committed to making the printing industry more sustainable and digital. Join our motivated team to contribute to rapid growth and sustainability goals that really make a difference!
+                </p>
+            </section>
+
+            {/* 4 Feature Columns */}
+            <section className="container mx-auto px-4 mt-24 max-w-6xl">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 text-center lg:text-left">
+                    <div className="flex flex-col gap-2">
+                        <h3 className="text-blue-500 font-medium text-[1.15rem]">Eco-Friendly Packaging</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed mt-1">Sustainable technology and processes. Reusable and 100% recyclable bags.</p>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <h3 className="text-blue-500 font-medium text-[1.15rem]">Fully Customizable</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed mt-1">Our packaging can be customised to include essential information, such as origin, processing methods...</p>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <h3 className="text-blue-500 font-medium text-[1.15rem]">Worldwide Delivery</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed mt-1">We can provide your business with affordable packaging with hermetic technology.</p>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <h3 className="text-blue-500 font-medium text-[1.15rem]">Creative Design</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed mt-1">Packaging design ideas along with tips on how to make your product stand out.</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Feature Split Section */}
+            <section className="mt-24 md:m-8 lg:mx-auto max-w-[85rem] bg-[#F0F5FF] lg:rounded-3xl overflow-hidden flex flex-col md:flex-row items-stretch">
+                {/* Left Content */}
+                <div className="flex-1 p-8 md:p-12 lg:p-20 flex flex-col justify-center">
+                    <span className="text-blue-500 uppercase text-xs md:text-sm tracking-[0.2em] font-bold mb-4 block">ECO-CONSCIOUS BUSINESSES</span>
+                    <h2 className="text-3xl md:text-[2.75rem] font-medium text-black leading-[1.1] mb-12 max-w-lg">
+                        Go green with custom eco-friendly packaging
+                    </h2>
+
+                    <div className="flex flex-col sm:flex-row gap-6">
+                        {/* Card 1 */}
+                        <div className="bg-white rounded-[1.25rem] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex-1 flex flex-col justify-center">
+                            <h4 className="text-blue-500 font-medium mb-3">The AirPrint Promise</h4>
+                            <p className="text-gray-600 text-[0.9rem] leading-relaxed">We guarantee the highest quality products and customer experience with every order!</p>
+                        </div>
+                        {/* Card 2 */}
+                        <div className="bg-white rounded-[1.25rem] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex-1 flex flex-col justify-center">
+                            <h4 className="text-blue-500 font-medium mb-3">Extensive Option Library</h4>
+                            <p className="text-gray-600 text-[0.9rem] leading-relaxed">Access over 50+ options that you can utilize to create your very own unique box experience.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Right Image Container */}
+                <div className="flex-1 relative min-h-[400px] md:min-h-[500px] lg:min-h-[600px] w-full mt-8 md:mt-0 flex items-center justify-center">
+                    <Image
+                        src="/images/air-print-about-img-1.png"
+                        alt="Custom eco-friendly packaging mockups including coffee cups, bags and donuts"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-contain md:object-cover mix-blend-multiply"
+                        priority
+                    />
+                </div>
+            </section>
+        </article>
+    )
+}
