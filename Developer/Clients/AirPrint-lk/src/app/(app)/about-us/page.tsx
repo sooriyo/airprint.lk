@@ -101,7 +101,91 @@ export default function AboutUsPage() {
                         />
                     </div>
                 </div>
-            </section>
-        </article>
+            </div>
+        </section>
+
+            {/* Testimonials Section */ }
+    <section className="mt-32 max-w-[100vw] overflow-hidden relative">
+        <div className="container mx-auto px-4 text-center mb-10">
+            <span className="text-blue-500 font-light text-3xl md:text-4xl mb-4 block">Testimonials.</span>
+            <h2 className="text-4xl md:text-[3.5rem] font-light text-gray-900 mb-6 tracking-tight">See what our customers say</h2>
+
+            <p className="text-gray-500 text-sm md:text-base font-light mb-8">
+                Don't let what we say influence you, take it from our customers!
+            </p>
+
+            <a href="#" className="inline-block text-blue-500 font-bold text-sm tracking-wider uppercase border-b-2 border-transparent hover:border-blue-500 transition-all duration-300">
+                SEE ALL REVIEWS
+            </a>
+        </div>
+
+        {/* Scrolling Testimonials Track */}
+        <div className="flex overflow-x-auto gap-6 sm:gap-8 pb-12 pt-4 px-4 sm:px-8 md:px-12 xl:px-[calc((100vw-80rem)/2)] scrollbar-hide snap-x snap-mandatory no-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+
+            {/* Testimonial Cards */}
+            {[
+                {
+                    name: 'John Doe',
+                    role: 'Marketing Manager',
+                    initials: 'JD',
+                    quote: 'This platform is incredibly intuitive and efficient, streamlining our workflow and boosting productivity. A must-have for any team!'
+                },
+                {
+                    name: 'Emily Smith',
+                    role: 'Project Manager',
+                    initials: 'ES',
+                    quote: 'User-friendly and feature-rich, it has transformed our operations, making tasks seamless and efficient. Highly recommended for professionals!'
+                },
+                {
+                    name: 'Michael Johnson',
+                    role: 'Sales Head',
+                    initials: 'MJ',
+                    quote: 'A game-changer for our sales team! Easy to use, reliable, and packed with great features that enhance efficiency and collaboration.'
+                },
+                {
+                    name: 'Sarah Williams',
+                    role: 'CEO',
+                    initials: 'SW',
+                    quote: 'Absolutely incredible experience. AirPrint provides exactly what we need to rapidly scale without losing focus on our core eco-initiatives.'
+                },
+                {
+                    name: 'David Chen',
+                    role: 'Operations Lead',
+                    initials: 'DC',
+                    quote: 'We have completely shifted our supply chain here. The fully customizable products speed up our delivery pipeline drastically!'
+                }
+            ].map((testimonial, i) => (
+                <div key={i} className="bg-white border border-gray-100 rounded-[1.5rem] p-8 shadow-[0_12px_40px_rgba(0,0,0,0.03)] min-w-[320px] max-w-[380px] sm:min-w-[400px] sm:max-w-[450px] flex-shrink-0 snap-center flex flex-col justify-between">
+                    <div className="flex justify-between items-start mb-6">
+                        <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 bg-gray-100 text-gray-500 font-medium rounded-full flex items-center justify-center text-lg">
+                                {testimonial.initials}
+                            </div>
+                            <div className="flex flex-col text-left">
+                                <h4 className="text-gray-900 font-medium text-[1.1rem] leading-tight">{testimonial.name}</h4>
+                                <span className="text-gray-400 font-light text-[0.85rem]">{testimonial.role}</span>
+                            </div>
+                        </div>
+                        {/* Blue Quote Icon */}
+                        <svg width="34" height="28" viewBox="0 0 34 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-blue-500 w-8 h-8 opacity-90">
+                            <path d="M12.9804 0C5.81186 0 0 5.81186 0 12.9804L0 27.2588H12.9804V14.2784H5.19216C6.63753 9.4716 11.2359 5.83922 16.8745 5.83922V0H12.9804ZM30.1255 0C22.9569 0 17.1451 5.81186 17.1451 12.9804L17.1451 27.2588H30.1255V14.2784H22.3373C23.7826 9.4716 28.3811 5.83922 34.0196 5.83922V0H30.1255Z" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <p className="text-gray-500 font-light text-[0.95rem] leading-relaxed text-left">
+                        {testimonial.quote}
+                    </p>
+                </div>
+            ))}
+        </div>
+
+        {/* CSS to hide scrollbar across browsers while maintaining functionality */}
+        <style dangerouslySetInnerHTML={{
+            __html: `
+                    .no-scrollbar::-webkit-scrollbar {
+                        display: none;
+                    }
+                `}} />
+    </section>
+        </article >
     )
 }
