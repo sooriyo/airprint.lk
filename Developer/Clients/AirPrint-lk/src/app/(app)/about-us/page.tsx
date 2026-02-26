@@ -90,7 +90,7 @@ export default function AboutUsPage() {
                 </div>
 
                 {/* Gray Image Container */}
-                <div className="w-full bg-[#f8f9fa] pt-16 pb-24 md:pt-24 md:pb-32 px-4 flex justify-center">
+                <div className="md:m-8 lg:mx-auto max-w-[85rem] bg-[#f8f9fa] lg:rounded-3xl pt-16 pb-24 md:pt-24 md:pb-32 px-4 flex justify-center">
                     <div className="relative w-full max-w-4xl aspect-[4/3] md:aspect-[16/9]">
                         <Image
                             src="/images/air-print-about-img-2.png"
