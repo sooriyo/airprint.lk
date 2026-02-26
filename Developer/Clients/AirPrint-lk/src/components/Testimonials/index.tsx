@@ -115,12 +115,12 @@ export async function Testimonials() {
             </div>
 
             {/* Scrolling Tracks */}
-            <div className="container mx-auto max-w-[85rem] overflow-hidden relative">
-                <div className="flex flex-col gap-6 w-full track-hover-pause">
-                    {/* Fade transparent overlays for smooth edges */}
-                    <div className="absolute inset-y-0 left-0 w-12 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-                    <div className="absolute inset-y-0 right-0 w-12 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+            <div className="w-full relative overflow-hidden">
+                {/* Fade transparent overlays for smooth edges */}
+                <div className="absolute inset-y-0 left-0 w-16 md:w-48 bg-gradient-to-r from-white to-white/0 z-20 pointer-events-none"></div>
+                <div className="absolute inset-y-0 right-0 w-16 md:w-48 bg-gradient-to-l from-white to-white/0 z-20 pointer-events-none"></div>
 
+                <div className="flex flex-col gap-6 w-full track-hover-pause">
                     {/* Row 1 (Moves Left) */}
                     <div className="flex gap-6 w-max animate-marquee-left py-2">
                         {row1Duplicated.map((review, i) => {
