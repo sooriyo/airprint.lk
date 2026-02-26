@@ -75,6 +75,33 @@ export default function AboutUsPage() {
                     />
                 </div>
             </section>
+
+            {/* The Background Section */}
+            <section className="mt-32">
+                <div className="container mx-auto px-4 max-w-4xl text-center mb-16">
+                    <span className="text-blue-500 font-light text-3xl md:text-4xl mb-2 block">The Background.</span>
+                    <h2 className="text-4xl md:text-[3.5rem] font-light text-gray-900 mb-12 tracking-tight">Where we come from?.</h2>
+
+                    <div className="flex flex-col gap-6 text-gray-500 text-sm md:text-[1.05rem] font-light leading-relaxed max-w-3xl mx-auto">
+                        <p>AirPrint was built on a strong foundation in the printing and packaging industry, backed by years of hands-on experience from our parent company.</p>
+                        <p>As the industry evolved, we saw the need for smarter, faster, and more sustainable solutions. This led to AirPrint a digital-first platform transforming traditional printing into an efficient and eco-friendly experience.</p>
+                        <p>Today, we combine industry expertise with modern technology to drive innovation and sustainability forward.</p>
+                    </div>
+                </div>
+
+                {/* Gray Image Container */}
+                <div className="w-full bg-[#f8f9fa] pt-16 pb-24 md:pt-24 md:pb-32 px-4 flex justify-center">
+                    <div className="relative w-full max-w-4xl aspect-[4/3] md:aspect-[16/9]">
+                        <Image
+                            src="/images/air-print-about-img-2.png"
+                            alt="AirPrint background packaging mockup box"
+                            fill
+                            sizes="(max-width: 1024px) 100vw, 1024px"
+                            className="object-contain mix-blend-multiply"
+                        />
+                    </div>
+                </div>
+            </section>
         </article>
     )
 }
