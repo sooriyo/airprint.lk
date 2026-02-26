@@ -18,7 +18,7 @@ const QuoteIcon = () => (
 
 function ReviewCard({ review, avatarUrl }: { review: any, avatarUrl: string | null }) {
     return (
-        <div className="w-[320px] md:w-[450px] flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-6 md:p-8 flex flex-col shadow-sm transition-shadow">
+        <div className="w-[280px] md:w-[450px] flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-5 md:p-8 flex flex-col shadow-sm transition-shadow">
             <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center gap-4">
                     <div className="relative w-12 h-12 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
@@ -73,7 +73,7 @@ export async function Testimonials() {
     const row2Duplicated = [...row2, ...row2, ...row2, ...row2]
 
     return (
-        <section className="py-24 bg-white overflow-hidden">
+        <section className="py-16 md:py-24 bg-white overflow-hidden">
             <style>{`
                 @keyframes marqueeLeft {
                     0% { transform: translateX(0); }
@@ -97,7 +97,7 @@ export async function Testimonials() {
                 }
             `}</style>
 
-            <div className="container mx-auto px-4 max-w-[85rem] mb-16 text-center flex flex-col items-center">
+            <div className="container mx-auto px-4 max-w-[85rem] mb-12 md:mb-16 text-center flex flex-col items-center">
                 {/* Header content */}
                 <span className="text-blue-500 font-light text-3xl md:text-4xl mb-2 block">Testimonials.</span>
                 <h2 className="text-4xl md:text-[3.25rem] font-light text-black mb-6 tracking-tight">
@@ -117,12 +117,12 @@ export async function Testimonials() {
             {/* Scrolling Tracks */}
             <div className="w-full relative overflow-hidden">
                 {/* Fade transparent overlays for smooth edges */}
-                <div className="absolute inset-y-0 left-0 w-16 md:w-48 bg-gradient-to-r from-white to-white/0 z-20 pointer-events-none"></div>
-                <div className="absolute inset-y-0 right-0 w-16 md:w-48 bg-gradient-to-l from-white to-white/0 z-20 pointer-events-none"></div>
+                <div className="absolute inset-y-0 left-0 w-8 sm:w-16 md:w-48 bg-gradient-to-r from-white to-white/0 z-20 pointer-events-none"></div>
+                <div className="absolute inset-y-0 right-0 w-8 sm:w-16 md:w-48 bg-gradient-to-l from-white to-white/0 z-20 pointer-events-none"></div>
 
-                <div className="flex flex-col gap-6 w-full track-hover-pause">
+                <div className="flex flex-col gap-4 md:gap-6 w-full track-hover-pause">
                     {/* Row 1 (Moves Left) */}
-                    <div className="flex gap-6 w-max animate-marquee-left py-2">
+                    <div className="flex gap-4 md:gap-6 w-max animate-marquee-left py-2">
                         {row1Duplicated.map((review, i) => {
                             const avatarUrl = typeof review.avatar === 'object' && review.avatar?.url ? review.avatar.url : null;
                             return (
@@ -132,7 +132,7 @@ export async function Testimonials() {
                     </div>
 
                     {/* Row 2 (Moves Right) */}
-                    <div className="flex gap-6 w-max animate-marquee-right py-2">
+                    <div className="flex gap-4 md:gap-6 w-max animate-marquee-right py-2">
                         {row2Duplicated.map((review, i) => {
                             const avatarUrl = typeof review.avatar === 'object' && review.avatar?.url ? review.avatar.url : null;
                             return (
