@@ -16,85 +16,130 @@ const QuoteIcon = () => (
     </svg>
 )
 
+function ReviewCard({ review, avatarUrl }: { review: any, avatarUrl: string | null }) {
+    return (
+        <div className="w-[320px] md:w-[450px] flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-6 md:p-8 flex flex-col shadow-sm transition-shadow">
+            <div className="flex items-start justify-between mb-6">
+                <div className="flex items-center gap-4">
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
+                        {avatarUrl ? (
+                            <Image
+                                src={avatarUrl}
+                                alt={`${review.name}'s avatar`}
+                                fill
+                                sizes="48px"
+                                className="object-cover"
+                            />
+                        ) : (
+                            <UserIcon />
+                        )}
+                    </div>
+                    <div className="flex flex-col">
+                        <h4 className="font-semibold text-gray-900 text-[1.1rem] leading-snug">{review.name}</h4>
+                        <p className="text-gray-400 text-sm whitespace-normal">{review.role}</p>
+                    </div>
+                </div>
+                <div className="flex-shrink-0">
+                    <QuoteIcon />
+                </div>
+            </div>
+            <div className="text-gray-400 text-[0.95rem] leading-relaxed font-light whitespace-normal min-h-[5rem]">
+                {review.review}
+            </div>
+        </div>
+    )
+}
+
 export async function Testimonials() {
     const payload = await getPayload({ config: configPromise })
 
-    // Fetch reviews from the database
+    // Fetch up to 20 reviews for the scrolling logic
     const result = await payload.find({
         collection: 'reviews',
-        limit: 6,
+        limit: 20,
         sort: '-createdAt', // Show newest first
     })
 
     const reviews = result.docs || []
-
     if (reviews.length === 0) return null
 
+    // Split reviews into two rotating rows
+    const row1 = reviews.filter((_, i) => i % 2 === 0)
+    const row2 = reviews.filter((_, i) => i % 2 === 1)
+
+    // Repeat items to fill screen and create infinite illusion
+    // 4 copies is safe to bridge any gaps and scroll continuously safely
+    const row1Duplicated = [...row1, ...row1, ...row1, ...row1]
+    const row2Duplicated = [...row2, ...row2, ...row2, ...row2]
+
     return (
-        <section className="py-24 bg-white">
-            <div className="container mx-auto px-4 max-w-[85rem]">
+        <section className="py-24 bg-white overflow-hidden">
+            <style>{`
+                @keyframes marqueeLeft {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-25%); } 
+                }
+                @keyframes marqueeRight {
+                    0% { transform: translateX(-25%); }
+                    100% { transform: translateX(0); }
+                }
+                .animate-marquee-left {
+                    animation: marqueeLeft 65s linear infinite;
+                }
+                .animate-marquee-right {
+                    animation: marqueeRight 65s linear infinite;
+                }
+                
+                /* Pause on hover functionality */
+                .track-hover-pause:hover .animate-marquee-left,
+                .track-hover-pause:hover .animate-marquee-right {
+                    animation-play-state: paused;
+                }
+            `}</style>
+
+            <div className="container mx-auto px-4 max-w-[85rem] mb-16 text-center flex flex-col items-center">
                 {/* Header content */}
-                <div className="text-center mb-16 flex flex-col items-center">
-                    <span className="text-blue-500 font-light text-3xl md:text-4xl mb-2 block">Testimonials.</span>
-                    <h2 className="text-4xl md:text-[3.25rem] font-light text-black mb-6 tracking-tight">
-                        See what our customers say
-                    </h2>
-                    <p className="text-gray-600 font-medium mb-6">
-                        Don't let what we say influence you, take it from our customers!
-                    </p>
-                    <Link
-                        href="#reviews"
-                        className="text-blue-500 font-bold text-sm tracking-wider uppercase hover:text-blue-600 transition-colors"
-                    >
-                        SEE ALL REVIEWS
-                    </Link>
-                </div>
+                <span className="text-blue-500 font-light text-3xl md:text-4xl mb-2 block">Testimonials.</span>
+                <h2 className="text-4xl md:text-[3.25rem] font-light text-black mb-6 tracking-tight">
+                    See what our customers say
+                </h2>
+                <p className="text-gray-600 mb-8 max-w-lg font-light">
+                    Don't let what we say influence you, take it from our customers!
+                </p>
+                <Link
+                    href="#reviews"
+                    className="text-blue-500 font-bold text-sm tracking-wider uppercase hover:text-blue-700 transition-colors"
+                >
+                    SEE ALL REVIEWS
+                </Link>
+            </div>
 
-                {/* Reviews Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {reviews.map((review) => {
-                        const avatarUrl = typeof review.avatar === 'object' && review.avatar?.url
-                            ? review.avatar.url
-                            : null;
+            {/* Scrolling Tracks */}
+            <div className="container mx-auto px-4 max-w-[85rem] overflow-hidden">
+                <div className="flex flex-col gap-6 w-full track-hover-pause relative">
+                    {/* Fade transparent overlays for smooth edges */}
+                    <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+                    <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
-                        return (
-                            <div
-                                key={review.id}
-                                className="bg-white border border-gray-200 rounded-3xl p-8 flex flex-col shadow-sm hover:shadow-md transition-shadow"
-                            >
-                                {/* Header: Avatar, Name, Role, Quote */}
-                                <div className="flex items-start justify-between mb-6">
-                                    <div className="flex items-center gap-4">
-                                        <div className="relative w-12 h-12 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
-                                            {avatarUrl ? (
-                                                <Image
-                                                    src={avatarUrl}
-                                                    alt={`${review.name}'s avatar`}
-                                                    fill
-                                                    sizes="48px"
-                                                    className="object-cover"
-                                                />
-                                            ) : (
-                                                <UserIcon />
-                                            )}
-                                        </div>
-                                        <div className="flex flex-col">
-                                            <h4 className="font-semibold text-gray-900 text-lg leading-snug">{review.name}</h4>
-                                            <p className="text-gray-400 text-sm">{review.role}</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex-shrink-0">
-                                        <QuoteIcon />
-                                    </div>
-                                </div>
+                    {/* Row 1 (Moves Left) */}
+                    <div className="flex gap-6 w-max animate-marquee-left py-2">
+                        {row1Duplicated.map((review, i) => {
+                            const avatarUrl = typeof review.avatar === 'object' && review.avatar?.url ? review.avatar.url : null;
+                            return (
+                                <ReviewCard key={`r1-${i}`} review={review} avatarUrl={avatarUrl} />
+                            )
+                        })}
+                    </div>
 
-                                {/* Review Text */}
-                                <div className="text-gray-400 text-[0.95rem] leading-relaxed font-light">
-                                    {review.review}
-                                </div>
-                            </div>
-                        )
-                    })}
+                    {/* Row 2 (Moves Right) */}
+                    <div className="flex gap-6 w-max animate-marquee-right py-2">
+                        {row2Duplicated.map((review, i) => {
+                            const avatarUrl = typeof review.avatar === 'object' && review.avatar?.url ? review.avatar.url : null;
+                            return (
+                                <ReviewCard key={`r2-${i}`} review={review} avatarUrl={avatarUrl} />
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
         </section>
