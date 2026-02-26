@@ -36,13 +36,13 @@ export async function GET() {
                     richText: {
                         root: {
                             type: 'root',
-                            format: 'center',
+                            format: '',
                             indent: 0,
                             version: 1,
                             children: [
                                 {
                                     type: 'heading',
-                                    format: 'center',
+                                    format: '',
                                     indent: 0,
                                     version: 1,
                                     tag: 'h1',
@@ -131,13 +131,13 @@ export async function GET() {
                     richText: {
                         root: {
                             type: 'root',
-                            format: 'center',
+                            format: '',
                             indent: 0,
                             version: 1,
                             children: [
                                 {
                                     type: 'heading',
-                                    format: 'center',
+                                    format: '',
                                     indent: 0,
                                     version: 1,
                                     tag: 'h1',
@@ -211,13 +211,13 @@ export async function GET() {
                     richText: {
                         root: {
                             type: 'root',
-                            format: 'center',
+                            format: '',
                             indent: 0,
                             version: 1,
                             children: [
                                 {
                                     type: 'heading',
-                                    format: 'center',
+                                    format: '',
                                     indent: 0,
                                     version: 1,
                                     tag: 'h1',
