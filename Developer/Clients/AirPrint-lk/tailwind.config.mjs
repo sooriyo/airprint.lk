@@ -90,13 +90,35 @@ export default {
           css: {
             '--tw-prose-body': 'var(--text)',
             '--tw-prose-headings': 'var(--text)',
+            '--tw-prose-links': 'var(--primary)',
             h1: {
               fontSize: '4rem',
-              fontWeight: 'normal',
+              fontWeight: '200',
               marginBottom: '0.25em',
             },
+            h2: {
+              fontWeight: '300',
+              marginBottom: '0.5em',
+              marginTop: '1.5em',
+            },
+            h3: {
+              fontWeight: '400',
+              marginBottom: '0.5em',
+              marginTop: '1.5em',
+            },
+            p: {
+              fontWeight: '300',
+              lineHeight: '1.75',
+              marginTop: '1em',
+              marginBottom: '1em',
+            },
             a: {
-              color: 'inherit',
+              color: 'var(--primary)',
+              fontWeight: '300',
+              textDecoration: 'none',
+              '&:hover': {
+                color: 'var(--primary-foreground)',
+              },
             },
           },
         },
